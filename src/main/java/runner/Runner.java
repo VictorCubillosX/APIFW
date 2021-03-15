@@ -8,12 +8,13 @@ import org.testng.annotations.BeforeClass;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
+
+import org.json.simple.parser.ParseException;
 import org.testng.annotations.AfterClass;
 
 import excelManager.GetTCData;
 import io.restassured.RestAssured;
 import readObject.ReadObject;
-import testCase.Step;
 import testCase.StepAPI;
 
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ import java.util.List;
 public class Runner {
 
 	List<StepAPI> steps;
-	SMethods fw = new SMethods();
+	APIMethods fw = new APIMethods();
 	GetTCData tcSteps = new GetTCData();
 
 	@BeforeClass
@@ -37,8 +38,8 @@ public class Runner {
 	}
 
 	@Test
-	public void test() {
-		SMethods fw = new SMethods();
+	public void test() throws ParseException {
+		APIMethods fw = new APIMethods();
 
 		for (int i = 0; i < steps.size(); i++) {
 			steps.get(i);
