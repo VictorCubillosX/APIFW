@@ -1,6 +1,10 @@
-package runner;
+package Runner;
+
 
 import org.testng.annotations.Test;
+
+import Methods.APIMethods;
+
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
