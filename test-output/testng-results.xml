@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-03-19T14:41:06 CST" name="Default suite" finished-at="2021-03-19T14:41:10 CST" duration-ms="3836">
+  <suite started-at="2021-03-22T14:22:49 CST" name="Default suite" finished-at="2021-03-22T14:22:53 CST" duration-ms="3972">
     <groups>
     </groups>
-    <test started-at="2021-03-19T14:41:06 CST" name="Default test" finished-at="2021-03-19T14:41:10 CST" duration-ms="3836">
+    <test started-at="2021-03-22T14:22:49 CST" name="Default test" finished-at="2021-03-22T14:22:53 CST" duration-ms="3972">
       <class name="Runner.Runner">
-        <test-method is-config="true" signature="testSetup()[pri:0, instance:Runner.Runner@57af006c]" started-at="2021-03-19T14:41:06 CST" name="testSetup" finished-at="2021-03-19T14:41:07 CST" duration-ms="931" status="PASS">
+        <test-method is-config="true" signature="testSetup()[pri:0, instance:Runner.Runner@6babf3bf]" started-at="2021-03-22T14:22:49 CST" name="testSetup" finished-at="2021-03-22T14:22:50 CST" duration-ms="976" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSetup -->
-        <test-method signature="test()[pri:0, instance:Runner.Runner@57af006c]" started-at="2021-03-19T14:41:07 CST" name="test" finished-at="2021-03-19T14:41:10 CST" duration-ms="2871" status="PASS">
+        <test-method signature="test()[pri:0, instance:Runner.Runner@6babf3bf]" started-at="2021-03-22T14:22:50 CST" name="test" finished-at="2021-03-22T14:22:53 CST" duration-ms="2961" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test -->
