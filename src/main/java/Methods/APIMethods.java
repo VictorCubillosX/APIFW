@@ -28,12 +28,23 @@ import java.util.List;
 public class APIMethods {
 
 	public void action(StepAPI step) throws ParseException {
+		int code = 0;
+		String jsR = "";
 		switch (step.getKeyword()) {
 		case "POST": {
+			try {
 			Response resp = (Response) RestAssured.given().body(step.getValueAPI().toString())
 					.header("content-type", "application/json").post(step.getParameters());
 			resp.body().prettyPrint();
-			assertEquals(resp.getStatusCode(), (int) (Double.parseDouble(step.getStatusCode())));
+			jsR = resp.getBody().jsonPath().get("message").toString();
+			code = resp.getStatusCode();
+			System.out.println("Status Code : " + code);
+			assertEquals(code, (int) (Double.parseDouble(step.getStatusCode())));
+			}catch(AssertionError e){
+				System.out.println("Status Code : " + code);
+				System.out.println("Message : " + jsR);
+				
+			}
 			break;
 		}
 
@@ -71,10 +82,19 @@ public class APIMethods {
 			break;
 		}
 		case "PUT": {
+			try {
 			Response resp = (Response) RestAssured.given().body(step.getValueAPI().toString())
 					.header("content-type", "application/json").put(step.getParameters());
 			resp.body().prettyPrint();
+			jsR = resp.getBody().jsonPath().get("message").toString();
+			code = resp.getStatusCode();
+			System.out.println("Status Code : " + code);
 			assertEquals(resp.getStatusCode(), (int) (Double.parseDouble(step.getStatusCode())));
+			}catch(AssertionError e){
+				System.out.println("Status Code : " + code);
+				System.out.println("Message : " + jsR);
+				
+			}
 			break;
 		}
 		case "DELETE":{
