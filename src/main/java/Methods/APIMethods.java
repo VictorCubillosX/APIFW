@@ -88,7 +88,7 @@ public class APIMethods {
 			resp.body().prettyPrint();
 			jsR = resp.getBody().jsonPath().get("message").toString();
 			code = resp.getStatusCode();
-			System.out.println("Status Code : " + code);
+			//System.out.println("Status Code : " + code);
 			assertEquals(resp.getStatusCode(), (int) (Double.parseDouble(step.getStatusCode())));
 			}catch(AssertionError e){
 				System.out.println("Status Code : " + code);

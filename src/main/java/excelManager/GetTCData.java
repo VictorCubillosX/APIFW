@@ -30,7 +30,7 @@ public class GetTCData {
 		
 		List<StepAPI> steps = new ArrayList<>();
 		ReadExcelFile excel = new ReadExcelFile();
-		Sheet sheet = excel.readExcel(".\\test-case", "plantillaBack.xlsx", "TC06");
+		Sheet sheet = excel.readExcel(".\\test-case", "plantillaBack.xlsx", "PI01");
 		Iterator<Row> rowIterator = sheet.iterator();
 		Row row = rowIterator.next();
 		while(rowIterator.hasNext()) {
