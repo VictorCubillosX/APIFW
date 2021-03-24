@@ -1,5 +1,7 @@
 package excelManager;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -9,15 +11,18 @@ import java.util.Properties;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.json.JSONObject;
 
 import readObject.ReadObject;
 import testCase.StepAPI;
 
 public class GetTCData {
+	
+	String ruta;
 		
-	public static List<StepAPI> getStepAPI() throws IOException {
-		String description;
+	public static List<StepAPI> getStepAPI(String path, String fileName, String sheetName) throws IOException {
+		String description = null;
 		String step;
 		String keyword;
 		String url;
@@ -25,12 +30,11 @@ public class GetTCData {
 		String parameters;
 		JSONObject valueAPI;
 		String statusCode;
-		String validationType;
-		String validationValue;
+		String TestCaseName = null;
 		
 		List<StepAPI> steps = new ArrayList<>();
 		ReadExcelFile excel = new ReadExcelFile();
-		Sheet sheet = excel.readExcel(".\\test-case", "plantillaBack.xlsx", "PI01");
+		Sheet sheet = excel.readExcel(path, fileName, sheetName);
 		Iterator<Row> rowIterator = sheet.iterator();
 		Row row = rowIterator.next();
 		while(rowIterator.hasNext()) {
@@ -54,6 +58,9 @@ public class GetTCData {
 				contenidoStep = "";
 			}
 			if(contenido.length() != 0) {
+				TestCaseName = stripString(row.getCell(0).toString());
+				if (TestCaseName.equals("ENDCASE"))
+					break;
 				description = row.getCell(0).toString();
 			}
 			else if (contenido.length() == 0 && contenidoStep.length()>0){
@@ -64,12 +71,28 @@ public class GetTCData {
 				parameters = row.getCell(5).toString();
 				valueAPI = new JSONObject(row.getCell(6).toString());
 				statusCode = row.getCell(7).toString();
-				validationType = row.getCell(8).toString();
-				validationValue = row.getCell(9).toString();
-				steps.add(new StepAPI(step, keyword, url, uri, parameters,valueAPI, statusCode,
-						validationType, validationValue));
+				steps.add(new StepAPI(description, step, keyword, url, uri, parameters,valueAPI, statusCode));
 			}
 		}
 		return steps;
 	}
+	public static String stripString(String value) {
+		return value.replaceFirst("^\\s++", "").replaceFirst("\\s++$", "");
+	}
+	
+	/** This method return the Sheet names*/
+	public String[] getSheetsNames(String URL) throws IOException {
+		 
+		 FileInputStream fis = new FileInputStream(new File(URL));
+
+			XSSFWorkbook workbook = new XSSFWorkbook(fis);
+			
+			 int Hojas = workbook.getNumberOfSheets(); 
+			 String[] Sheetname = new String[Hojas];	
+				
+			 for(int i = 0;i<Hojas;i++) {
+				 Sheetname[i]= workbook.getSheetName(i);
+			 }
+		 return Sheetname;
+	 }
 }
