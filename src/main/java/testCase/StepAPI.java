@@ -3,6 +3,7 @@ package testCase;
 import org.json.JSONObject;
 
 public class StepAPI {
+	private String description;
 	private String number;
 	private String keyword;
 	private String url;
@@ -10,11 +11,10 @@ public class StepAPI {
 	private String parameters;
 	private JSONObject valueAPI;
 	private String statusCode;
-	private String validationType;
-	private String validationValue;
 	
-	public StepAPI(String number, String keyword, String url, String uri, String parameters, JSONObject valueAPI,
-			String statusCode,String validationType, String validationValue) {
+	public StepAPI(String description, String number, String keyword, String url, String uri, String parameters, JSONObject valueAPI,
+			String statusCode) {
+		this.description = description;
 		this.number = number;
 		this.keyword = keyword;
 		this.url = url;
@@ -22,8 +22,14 @@ public class StepAPI {
 		this.parameters = parameters;
 		this.valueAPI = valueAPI;
 		this.statusCode = statusCode;
-		this.validationType = validationType;
-		this.validationValue = validationValue;
+	}
+	
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	public String getDescription() {
+		return this.description;
 	}
 	
 	public void setNumber(String number) {
@@ -80,21 +86,6 @@ public class StepAPI {
 	
 	public String getStatusCode() {
 		return this.statusCode;
-	}
-	
-	public void setValidationType(String validationType) {
-		this.validationType = validationType;
-	}
-	public String getValidationType() {
-		return this.validationType;
-	}
-	
-	public void setValidationValue(String validationValue) {
-		this.validationValue = validationValue;
-	}
-	
-	public String getValidationValue() {
-		return this.validationValue;
 	}
 	
 	

@@ -33,76 +33,59 @@ public class APIMethods {
 		switch (step.getKeyword()) {
 		case "POST": {
 			try {
-			Response resp = (Response) RestAssured.given().body(step.getValueAPI().toString())
-					.header("content-type", "application/json").post(step.getParameters());
-			resp.body().prettyPrint();
-			jsR = resp.getBody().jsonPath().get("message").toString();
-			code = resp.getStatusCode();
-			System.out.println("Status Code : " + code);
-			assertEquals(code, (int) (Double.parseDouble(step.getStatusCode())));
-			}catch(AssertionError e){
+				Response resp = (Response) RestAssured.given().body(step.getValueAPI().toString())
+						.header("content-type", "application/json").post(step.getParameters());
+				jsR = resp.getBody().jsonPath().get("message").toString();
+				code = resp.getStatusCode();
+				assertEquals(code, (int) (Double.parseDouble(step.getStatusCode())));
+				resp.body().prettyPrint();
+				System.out.println("Status Code : " + code);
+			} catch (AssertionError e) {
 				System.out.println("Status Code : " + code);
 				System.out.println("Message : " + jsR);
-				
+
 			}
 			break;
 		}
 
 		case "GET": {
-			String string = step.getValidationValue();
-			String[] parts = string.split(":");
-			String part2 = parts[1]; // 2
+			try {
+				Response resp = RestAssured.given().header("content-type", "application/json").when()
+						.get(step.getParameters());
+				jsR = resp.getBody().jsonPath().get("message").toString();
+				code = resp.getStatusCode();
+				assertEquals(resp.getStatusCode(), (int) (Double.parseDouble(step.getStatusCode())));
+				resp.body().prettyPrint();
+				System.out.println("Status Code : " + code);
+			} catch (AssertionError e) {
+				System.out.println("Status Code : " + code);
+				System.out.println("Message : " + jsR);
 
-			int id = Integer.parseInt(part2);
-
-			System.out.println("Id a buscar: " + id);
-
-			Response resp = RestAssured.given()
-					.header("content-type", "application/json")
-					.when()
-					.get(step.getParameters());
-			resp.body().prettyPrint();
-
-			JsonPath json = resp.body().jsonPath();
-
-			String response = resp.body().toString();
-
-			JSONParser parser = new JSONParser();
-
-			// JSONObject j = new JSONObject(resp.body().toString());
-
-			// j.get("id").toString();
-
-			// String r = json.getString(".data.id");
-
-			// System.out.println(r);
-			// System.out.println("1");
-			// assertEquals(resp.getBody().jsonPath().get("id").toString(), part2);
-			assertEquals(resp.getStatusCode(), (int) (Double.parseDouble(step.getStatusCode())));
+			}
 			break;
 		}
 		case "PUT": {
 			try {
-			Response resp = (Response) RestAssured.given().body(step.getValueAPI().toString())
-					.header("content-type", "application/json").put(step.getParameters());
-			resp.body().prettyPrint();
-			jsR = resp.getBody().jsonPath().get("message").toString();
-			code = resp.getStatusCode();
-			//System.out.println("Status Code : " + code);
-			assertEquals(resp.getStatusCode(), (int) (Double.parseDouble(step.getStatusCode())));
-			}catch(AssertionError e){
+				Response resp = (Response) RestAssured.given().body(step.getValueAPI().toString())
+						.header("content-type", "application/json").put(step.getParameters());
+
+				jsR = resp.getBody().jsonPath().get("message").toString();
+				code = resp.getStatusCode();
+				assertEquals(resp.getStatusCode(), (int) (Double.parseDouble(step.getStatusCode())));
+				resp.body().prettyPrint();
+				System.out.println("Status Code : " + code);
+			} catch (AssertionError e) {
 				System.out.println("Status Code : " + code);
 				System.out.println("Message : " + jsR);
-				
+
 			}
 			break;
 		}
-		case "DELETE":{
-			Response resp = (Response) RestAssured.given()
-					.delete(step.getParameters());
+		case "DELETE": {
+			Response resp = (Response) RestAssured.given().delete(step.getParameters());
 			assertEquals(resp.getStatusCode(), (int) (Double.parseDouble(step.getStatusCode())));
 			System.out.println("Usuario Eliminado");
-		
+
 		}
 
 		}

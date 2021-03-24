@@ -5,6 +5,7 @@
     <classes>
       <class name="Runner.Runner">
         <methods>
+          <include name="tearDown"/>
           <include name="test"/>
           <include name="testSetup"/>
         </methods>
