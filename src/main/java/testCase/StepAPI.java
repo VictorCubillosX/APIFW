@@ -11,9 +11,10 @@ public class StepAPI {
 	private String parameters;
 	private JSONObject valueAPI;
 	private String statusCode;
+	private String id;
 	
 	public StepAPI(String description, String number, String keyword, String url, String uri, String parameters, JSONObject valueAPI,
-			String statusCode) {
+			String statusCode, String id) {
 		this.description = description;
 		this.number = number;
 		this.keyword = keyword;
@@ -22,6 +23,7 @@ public class StepAPI {
 		this.parameters = parameters;
 		this.valueAPI = valueAPI;
 		this.statusCode = statusCode;
+		this.id = id;
 	}
 	
 	public void setDescription(String description) {
@@ -86,6 +88,13 @@ public class StepAPI {
 	
 	public String getStatusCode() {
 		return this.statusCode;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	public String getId() {
+		return this.id;
 	}
 	
 	

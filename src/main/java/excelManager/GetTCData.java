@@ -31,6 +31,7 @@ public class GetTCData {
 		JSONObject valueAPI;
 		String statusCode;
 		String TestCaseName = null;
+		String id = null;
 		
 		List<StepAPI> steps = new ArrayList<>();
 		ReadExcelFile excel = new ReadExcelFile();
@@ -52,26 +53,26 @@ public class GetTCData {
 			}
 			try {
 				cel = row.getCell(1);
-				contenidoStep = row.getCell(1).toString();
+				contenidoStep = row.getCell(2).toString();
 			}
 			catch(NullPointerException e) {
 				contenidoStep = "";
 			}
 			if(contenido.length() != 0) {
-				TestCaseName = stripString(row.getCell(0).toString());
-				if (TestCaseName.equals("ENDCASE"))
+				id = stripString(row.getCell(0).toString());
+				if (id.equals("ENDCASE"))
 					break;
-				description = row.getCell(0).toString();
+				description = row.getCell(1).toString();
 			}
 			else if (contenido.length() == 0 && contenidoStep.length()>0){
-				step = row.getCell(1).toString();
-				keyword = row.getCell(2).toString();
-				url = row.getCell(3).toString();
-				uri = row.getCell(4).toString();
-				parameters = row.getCell(5).toString();
-				valueAPI = new JSONObject(row.getCell(6).toString());
-				statusCode = row.getCell(7).toString();
-				steps.add(new StepAPI(description, step, keyword, url, uri, parameters,valueAPI, statusCode));
+				step = row.getCell(2).toString();
+				keyword = row.getCell(3).toString();
+				url = row.getCell(4).toString();
+				uri = row.getCell(5).toString();
+				parameters = row.getCell(6).toString();
+				valueAPI = new JSONObject(row.getCell(7).toString());
+				statusCode = row.getCell(8).toString();
+				steps.add(new StepAPI(description, step, keyword, url, uri, parameters,valueAPI, statusCode, id));
 			}
 		}
 		return steps;

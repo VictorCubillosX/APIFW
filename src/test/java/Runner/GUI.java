@@ -3,6 +3,11 @@ package Runner;
 import excelManager.ReadExcelFile;
 
 import javax.swing.*;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.Rectangle;
 import java.io.IOException;
 
 public class GUI {
@@ -34,13 +39,17 @@ public class GUI {
 
         JRadioButton[] radio = new JRadioButton[namesTc.length];
         //create panel interface
-        JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        JPanel gui = new JPanel(new BorderLayout(1,1));
+        JPanel panel = new JPanel(new GridLayout(0,1));
+        JScrollPane scroll = new JScrollPane(panel);
+        //scroll.setBounds(5,10,140,100);
+        scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scroll.setPreferredSize(new Dimension(100,200));
+        gui.add(scroll);
+        
         JLabel label = new JLabel();
         label.setText("Which Test Cases wish execute");
-        panel.add(label);
-        panel.setBounds(10, 10, 375, 150);
-
+        gui.add(label, BorderLayout.NORTH);
         /** This for create and add to array radio all the buttons that we will show */
         String name = "";
         for (int u = 0; u < namesTc.length; u++) {
@@ -58,9 +67,10 @@ public class GUI {
 
         }
 
+        
         /** Show the Panel */
-        JOptionPane.showMessageDialog(null, panel);
-
+        JOptionPane.showMessageDialog(null, gui);       
+        
         /** This for save the selected Test cases */
         tcSelected = new String[radio.length];
         String radios="";

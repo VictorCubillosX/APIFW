@@ -1,127 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="10" passed="10" failed="0" skipped="0">
+<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-03-24T10:13:43 CST" name="Default suite" finished-at="2021-03-24T10:14:08 CST" duration-ms="24872">
+  <suite started-at="2021-03-25T15:34:25 CST" name="Default suite" finished-at="2021-03-25T15:34:48 CST" duration-ms="22621">
     <groups>
     </groups>
-    <test started-at="2021-03-24T10:13:43 CST" name="Default test" finished-at="2021-03-24T10:14:08 CST" duration-ms="24872">
+    <test started-at="2021-03-25T15:34:25 CST" name="Default test" finished-at="2021-03-25T15:34:48 CST" duration-ms="22621">
       <class name="Runner.Runner">
-        <test-method is-config="true" signature="testSetup()[pri:0, instance:Runner.Runner@49c7b90e]" started-at="2021-03-24T10:13:43 CST" name="testSetup" finished-at="2021-03-24T10:13:43 CST" duration-ms="208" status="PASS">
+        <test-method is-config="true" signature="testSetup()[pri:0, instance:Runner.Runner@63a12c68]" started-at="2021-03-25T15:34:25 CST" name="testSetup" finished-at="2021-03-25T15:34:26 CST" duration-ms="232" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSetup -->
-        <test-method signature="test(java.util.List)[pri:0, instance:Runner.Runner@49c7b90e]" started-at="2021-03-24T10:13:58 CST" name="test" data-provider="pasos" finished-at="2021-03-24T10:14:01 CST" duration-ms="2773" status="PASS">
+        <test-method signature="test(java.util.List)[pri:0, instance:Runner.Runner@63a12c68]" started-at="2021-03-25T15:34:41 CST" name="test" data-provider="pasos" finished-at="2021-03-25T15:34:45 CST" duration-ms="3518" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[testCase.StepAPI@43cf6ea3]]]>
+                <![CDATA[[testCase.StepAPI@19593091]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test -->
-        <test-method signature="test(java.util.List)[pri:0, instance:Runner.Runner@49c7b90e]" started-at="2021-03-24T10:14:01 CST" name="test" data-provider="pasos" finished-at="2021-03-24T10:14:01 CST" duration-ms="664" status="PASS">
+        <test-method signature="test(java.util.List)[pri:0, instance:Runner.Runner@63a12c68]" started-at="2021-03-25T15:34:45 CST" name="test" data-provider="pasos" finished-at="2021-03-25T15:34:46 CST" duration-ms="689" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[testCase.StepAPI@241b971f]]]>
+                <![CDATA[[testCase.StepAPI@723742b2]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test -->
-        <test-method signature="test(java.util.List)[pri:0, instance:Runner.Runner@49c7b90e]" started-at="2021-03-24T10:14:01 CST" name="test" data-provider="pasos" finished-at="2021-03-24T10:14:02 CST" duration-ms="1252" status="PASS">
+        <test-method signature="test(java.util.List)[pri:0, instance:Runner.Runner@63a12c68]" started-at="2021-03-25T15:34:46 CST" name="test" data-provider="pasos" finished-at="2021-03-25T15:34:47 CST" duration-ms="975" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[testCase.StepAPI@342beaf6]]]>
+                <![CDATA[[testCase.StepAPI@656c5c3]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test -->
-        <test-method signature="test(java.util.List)[pri:0, instance:Runner.Runner@49c7b90e]" started-at="2021-03-24T10:14:02 CST" name="test" data-provider="pasos" finished-at="2021-03-24T10:14:03 CST" duration-ms="666" status="PASS">
+        <test-method signature="test(java.util.List)[pri:0, instance:Runner.Runner@63a12c68]" started-at="2021-03-25T15:34:47 CST" name="test" data-provider="pasos" finished-at="2021-03-25T15:34:47 CST" duration-ms="640" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[testCase.StepAPI@437281c5]]]>
+                <![CDATA[[testCase.StepAPI@2315052d]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test -->
-        <test-method signature="test(java.util.List)[pri:0, instance:Runner.Runner@49c7b90e]" started-at="2021-03-24T10:14:03 CST" name="test" data-provider="pasos" finished-at="2021-03-24T10:14:04 CST" duration-ms="967" status="PASS">
+        <test-method signature="test(java.util.List)[pri:0, instance:Runner.Runner@63a12c68]" started-at="2021-03-25T15:34:47 CST" name="test" data-provider="pasos" finished-at="2021-03-25T15:34:48 CST" duration-ms="718" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[testCase.StepAPI@1c74d19]]]>
+                <![CDATA[[testCase.StepAPI@5f193335]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test -->
-        <test-method signature="test(java.util.List)[pri:0, instance:Runner.Runner@49c7b90e]" started-at="2021-03-24T10:14:04 CST" name="test" data-provider="pasos" finished-at="2021-03-24T10:14:05 CST" duration-ms="719" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[testCase.StepAPI@2eb1c615]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test -->
-        <test-method signature="test(java.util.List)[pri:0, instance:Runner.Runner@49c7b90e]" started-at="2021-03-24T10:14:05 CST" name="test" data-provider="pasos" finished-at="2021-03-24T10:14:05 CST" duration-ms="626" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[testCase.StepAPI@423f8a73]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test -->
-        <test-method signature="test(java.util.List)[pri:0, instance:Runner.Runner@49c7b90e]" started-at="2021-03-24T10:14:05 CST" name="test" data-provider="pasos" finished-at="2021-03-24T10:14:07 CST" duration-ms="1424" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[testCase.StepAPI@401788d5]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test -->
-        <test-method signature="test(java.util.List)[pri:0, instance:Runner.Runner@49c7b90e]" started-at="2021-03-24T10:14:07 CST" name="test" data-provider="pasos" finished-at="2021-03-24T10:14:07 CST" duration-ms="629" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[testCase.StepAPI@19d53ab4]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test -->
-        <test-method signature="test(java.util.List)[pri:0, instance:Runner.Runner@49c7b90e]" started-at="2021-03-24T10:14:07 CST" name="test" data-provider="pasos" finished-at="2021-03-24T10:14:08 CST" duration-ms="624" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[testCase.StepAPI@27358a19]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:Runner.Runner@49c7b90e]" started-at="2021-03-24T10:14:08 CST" name="tearDown" finished-at="2021-03-24T10:14:09 CST" duration-ms="458" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Runner.Runner@63a12c68]" started-at="2021-03-25T15:34:48 CST" name="tearDown" finished-at="2021-03-25T15:34:49 CST" duration-ms="498" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
