@@ -27,9 +27,10 @@ import java.util.List;
 
 public class APIMethods {
 
-	public void action(StepAPI step) throws ParseException {
+	public String action(StepAPI step) throws ParseException {
 		int code = 0;
 		String jsR = "";
+		String body ="";
 		switch (step.getKeyword()) {
 		case "POST": {
 			try {
@@ -37,15 +38,18 @@ public class APIMethods {
 						.header("content-type", "application/json").post(step.getParameters());
 				jsR = resp.getBody().jsonPath().get("message").toString();
 				code = resp.getStatusCode();
+				body = resp.body().prettyPrint();
 				assertEquals(code, (int) (Double.parseDouble(step.getStatusCode())));
-				resp.body().prettyPrint();
+				resp.body().prettyPrint();	
 				System.out.println("Status Code : " + code);
+				System.out.println("Message : " + jsR);
+					
 			} catch (AssertionError e) {
 				System.out.println("Status Code : " + code);
 				System.out.println("Message : " + jsR);
 
 			}
-			break;
+			return body;
 		}
 
 		case "GET": {
@@ -54,15 +58,16 @@ public class APIMethods {
 						.get(step.getParameters());
 				jsR = resp.getBody().jsonPath().get("message").toString();
 				code = resp.getStatusCode();
+				body = resp.body().prettyPrint();
 				assertEquals(resp.getStatusCode(), (int) (Double.parseDouble(step.getStatusCode())));
-				resp.body().prettyPrint();
+				//resp.body().prettyPrint();
 				System.out.println("Status Code : " + code);
 			} catch (AssertionError e) {
 				System.out.println("Status Code : " + code);
 				System.out.println("Message : " + jsR);
 
 			}
-			break;
+			return body;
 		}
 		case "PUT": {
 			try {
@@ -71,6 +76,7 @@ public class APIMethods {
 
 				jsR = resp.getBody().jsonPath().get("message").toString();
 				code = resp.getStatusCode();
+				body = resp.body().prettyPrint();
 				assertEquals(resp.getStatusCode(), (int) (Double.parseDouble(step.getStatusCode())));
 				resp.body().prettyPrint();
 				System.out.println("Status Code : " + code);
@@ -79,16 +85,18 @@ public class APIMethods {
 				System.out.println("Message : " + jsR);
 
 			}
-			break;
+			return body;
 		}
 		case "DELETE": {
 			Response resp = (Response) RestAssured.given().delete(step.getParameters());
 			assertEquals(resp.getStatusCode(), (int) (Double.parseDouble(step.getStatusCode())));
 			System.out.println("Usuario Eliminado");
+			return body;
 
 		}
 
 		}
+		return body;
 
 	}
 
