@@ -18,7 +18,11 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 
+import java.awt.Desktop;
+import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -31,6 +35,8 @@ import readObject.ReadObject;
 import testCase.StepAPI;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class Runner {
@@ -43,10 +49,12 @@ public class Runner {
 	String path;
 	String fileName;
 	String tcSelected;
+	String reportFilename;
 
 	@BeforeClass
 	public void testSetup() throws IOException {
-		htmlReporter = new ExtentHtmlReporter("extent.html");
+		reportFilename = String.format("target/report_%s.html", getDateTime());
+		htmlReporter = new ExtentHtmlReporter(reportFilename);
 		extent = new ExtentReports();
 		extent.attachReporter(htmlReporter);
 
@@ -102,6 +110,11 @@ public class Runner {
 	@AfterSuite
 	public void tearDown() {
 		extent.flush();
+		try {
+			Desktop.getDesktop().open(new File(reportFilename));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	private void addDetails(ExtentTest test, StepAPI step, String body) throws IOException {
 		String[][] tableData = { { "JSON", step.getValueAPI().toString() }, 
@@ -110,5 +123,12 @@ public class Runner {
 		};
 		Markup table = MarkupHelper.createTable(tableData);
 		test.log(Status.INFO, table);
+	}
+	
+	private String getDateTime() {
+		Date date = Calendar.getInstance().getTime();
+		DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy_HH_mm_ss");
+		String today = formatter.format(date);
+		return today;
 	}
 }
