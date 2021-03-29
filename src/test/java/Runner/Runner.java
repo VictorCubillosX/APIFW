@@ -86,22 +86,19 @@ public class Runner {
 	@Test(dataProvider = "pasos")
 	public void test(List<StepAPI> pasos) throws IOException {
 		APIMethods fw = new APIMethods();
-		String body = "";
 		StepAPI paso1 = pasos.get(0);
 		test = extent.createTest(paso1.getId(), paso1.getDescription());
 		for (StepAPI step : pasos) {
 			try {
 				RestAssured.baseURI = step.getUrl();
 				RestAssured.basePath = step.getUri();
-				body = fw.action(step);
+				fw.action(step);
 				test.pass(step.getDescription());
 				//test.log(Status.INFO, body);
-				addDetails(test, step, body);
-			} catch (Exception e) {
-				test.fail(step.getValueAPI().toString());
-				//test.log(Status.INFO, body);
-				addDetails(test, step, body);
-				test.error(e);
+				addDetails(test, step, fw.getBody());
+			} catch (Exception | AssertionError e) {
+				test.fail(step.getDescription());
+				addDetails(test, step, fw.getBody());
 			}
 		}
 
@@ -118,7 +115,7 @@ public class Runner {
 	}
 	private void addDetails(ExtentTest test, StepAPI step, String body) throws IOException {
 		String[][] tableData = { { "JSON", step.getValueAPI().toString() }, 
-				{ "Output", body }
+				{ "Output", body }//, {"Status code", step.getStatusCode() }
 				// ,{ "value", step.getValue() }
 		};
 		Markup table = MarkupHelper.createTable(tableData);
