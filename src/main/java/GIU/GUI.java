@@ -1,4 +1,4 @@
-package Runner;
+package GIU;
 
 import excelManager.ReadExcelFile;
 
