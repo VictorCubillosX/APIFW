@@ -2,27 +2,27 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-03-29T12:32:59 CST" name="Default suite" finished-at="2021-03-29T12:33:09 CST" duration-ms="10604">
+  <suite started-at="2021-03-29T16:38:02 CST" name="Default suite" finished-at="2021-03-29T16:38:20 CST" duration-ms="18056">
     <groups>
     </groups>
-    <test started-at="2021-03-29T12:32:59 CST" name="Default test" finished-at="2021-03-29T12:33:09 CST" duration-ms="10604">
+    <test started-at="2021-03-29T16:38:02 CST" name="Default test" finished-at="2021-03-29T16:38:20 CST" duration-ms="18056">
       <class name="Runner.Runner">
-        <test-method is-config="true" signature="testSetup()[pri:0, instance:Runner.Runner@63a12c68]" started-at="2021-03-29T12:32:59 CST" name="testSetup" finished-at="2021-03-29T12:32:59 CST" duration-ms="254" status="PASS">
+        <test-method is-config="true" signature="testSetup()[pri:0, instance:Runner.Runner@63a12c68]" started-at="2021-03-29T16:38:02 CST" name="testSetup" finished-at="2021-03-29T16:38:02 CST" duration-ms="227" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testSetup -->
-        <test-method signature="test(java.util.List)[pri:0, instance:Runner.Runner@63a12c68]" started-at="2021-03-29T12:33:06 CST" name="test" data-provider="pasos" finished-at="2021-03-29T12:33:09 CST" duration-ms="3602" status="PASS">
+        <test-method signature="test(java.util.List)[pri:0, instance:Runner.Runner@63a12c68]" started-at="2021-03-29T16:38:15 CST" name="test" data-provider="pasos" finished-at="2021-03-29T16:38:20 CST" duration-ms="5083" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[testCase.StepAPI@27068a50]]]>
+                <![CDATA[[testCase.StepAPI@7c974942]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:Runner.Runner@63a12c68]" started-at="2021-03-29T12:33:09 CST" name="tearDown" finished-at="2021-03-29T12:33:10 CST" duration-ms="481" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Runner.Runner@63a12c68]" started-at="2021-03-29T16:38:20 CST" name="tearDown" finished-at="2021-03-29T16:38:21 CST" duration-ms="540" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
