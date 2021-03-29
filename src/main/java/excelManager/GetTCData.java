@@ -13,8 +13,6 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.json.JSONObject;
-
-import readObject.ReadObject;
 import testCase.StepAPI;
 
 public class GetTCData {

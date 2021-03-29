@@ -31,7 +31,6 @@ import org.testng.annotations.AfterClass;
 
 import excelManager.GetTCData;
 import io.restassured.RestAssured;
-import readObject.ReadObject;
 import testCase.StepAPI;
 
 import java.util.ArrayList;
