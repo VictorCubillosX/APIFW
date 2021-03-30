@@ -9,7 +9,7 @@ import com.aventstack.extentreports.markuputils.Markup;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
-import GIU.GUI;
+import GUI.GUI;
 import excelManager.ReadExcelFile;
 import Methods.APIMethods;
 

@@ -1,4 +1,4 @@
-package GIU;
+package GUI;
 
 import excelManager.ReadExcelFile;
 
