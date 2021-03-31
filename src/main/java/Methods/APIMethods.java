@@ -25,6 +25,17 @@ import testCase.StepAPI;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
+/*
+* This is a class that contains the methods of the request types used to run 
+* the API tests of the Runner.java class
+* 
+* Input: NA
+* Output:NA 
+* By: Team Lot 1
+*/
+
 public class APIMethods {
 
 	String body = "";
@@ -32,39 +43,39 @@ public class APIMethods {
 	public void action(StepAPI step) throws Exception {
 		int code = 0;
 		String jsR = "";
-		// String body ="";
+		
 		switch (step.getKeyword()) {
 		case "POST": {
-			// try {
+			
 			Response resp = (Response) RestAssured.given().body(step.getValueAPI().toString())
 					.header("content-type", "application/json").post(step.getParameters());
 			jsR = resp.getBody().jsonPath().get("message").toString();
 			code = resp.getStatusCode();
 			body = resp.body().prettyPrint();
 			assertEquals(code, (int) (Double.parseDouble(step.getStatusCode())));
-			// resp.body().prettyPrint();
+			
 			System.out.println("Status Code : " + code);
 			System.out.println("Message : " + jsR);
 
-			// return body;
+			
 			break;
 		}
 
 		case "GET": {
-			// try {
+			
 			Response resp = RestAssured.given().header("content-type", "application/json").when()
 					.get(step.getParameters());
 			jsR = resp.getBody().jsonPath().get("message").toString();
 			code = resp.getStatusCode();
 			body = resp.body().prettyPrint();
 			assertEquals(resp.getStatusCode(), (int) (Double.parseDouble(step.getStatusCode())));
-			// resp.body().prettyPrint();
+			
 			System.out.println("Status Code : " + code);
-			// return body;
+			
 			break;
 		}
 		case "PUT": {
-			// try {
+			
 			Response resp = (Response) RestAssured.given().body(step.getValueAPI().toString())
 					.header("content-type", "application/json").put(step.getParameters());
 
@@ -74,7 +85,7 @@ public class APIMethods {
 			assertEquals(resp.getStatusCode(), (int) (Double.parseDouble(step.getStatusCode())));
 			resp.body().prettyPrint();
 			System.out.println("Status Code : " + code);
-			// return body;
+			
 			break;
 		}
 

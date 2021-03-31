@@ -39,6 +39,18 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+
+/*
+* This is an executable class to run API tests using Api Rest Assured, these can be by test case 
+* or test sets.
+* 
+* Input: Excel data file
+* Output:HTML test report 
+* 
+* By: Team Batch 1 	
+*/
+
+
 public class Runner {
 
 	APIMethods fw = new APIMethods();
@@ -94,7 +106,7 @@ public class Runner {
 				RestAssured.basePath = step.getUri();
 				fw.action(step);
 				test.pass(step.getDescription());
-				//test.log(Status.INFO, body);
+				
 				addDetails(test, step, fw.getBody());
 			} catch (Exception | AssertionError e) {
 				test.fail(step.getDescription());
@@ -115,8 +127,8 @@ public class Runner {
 	}
 	private void addDetails(ExtentTest test, StepAPI step, String body) throws IOException {
 		String[][] tableData = { { "JSON", step.getValueAPI().toString() }, 
-				{ "Output", body }//, {"Status code", step.getStatusCode() }
-				// ,{ "value", step.getValue() }
+				{ "Output", body }
+				
 		};
 		Markup table = MarkupHelper.createTable(tableData);
 		test.log(Status.INFO, table);
