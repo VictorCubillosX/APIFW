@@ -47,7 +47,7 @@ import java.util.List;
 * Input: Excel data file
 * Output:HTML test report 
 * 
-* By: Team Batch 1 	
+* By: Team SDET Batch 1 	
 */
 
 
